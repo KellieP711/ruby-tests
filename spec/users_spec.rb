@@ -1,6 +1,9 @@
 require 'HTTParty'
 require 'json'
 
+# for these tests I chose to put all the info in this file, given the small amount
+# of tests.  If this were to grow, it would make sense to move things in to a class file
+# and pass the class in here to the "RSpec.describe Class ...."
 RSpec.describe "test the /users api" do
     # set the url here so I can use it in each test
     let(:url) { 'https://jsonplaceholder.typicode.com/users' }
@@ -29,6 +32,7 @@ RSpec.describe "test the /users api" do
     end
 
     # verify a DELETE on one of the main endpoints throws a 404
+    # a negative test to verify error handling in the endpoint
     context "make a DELETE request to the /users endpoint" do
         it "should return a 404 error" do
             response = HTTParty.delete(url)

@@ -14,8 +14,10 @@ radio_buttons.select('other')
 puts "The gender radio button thats selected: #{radio_buttons.value}"
 
 # In the dropdown section select Audi from the list
-# I'm not a fan of xpath - i'd ask the developers for an identifier of some sort here
-# If it can't get an id then revisit this approach
+# I used xpath here, but i'm not a fan of using it. I'd consider this a
+# defect and ask the developers for an identifier of some sort here.
+# If it can't get an id, then revisit this approach, maybe there's a way to search with
+# in the specific div for the select.
 dropdown = browser.select_list(xpath: '//*[@id="post-909"]//select')
 dropdown.select 'Audi'
 puts "dropdown box selection: #{dropdown.value}"
